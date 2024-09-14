@@ -65,18 +65,30 @@ def main():
     if not is_valid_url(long_url_input):
         print("Ошибка: введен некорректный адрес.")
         return
+<<<<<<< Updated upstream
     VK_TOKEN_API = os.environ.get('CCCC')
     if VK_TOKEN_API is None:
+=======
+    vk_api_short_link_token = os.environ.get('CCCC')
+    if vk_api_short_link_token is None:
+>>>>>>> Stashed changes
         print("Ошибка: переменная окружения 'CCCC' не установлена.")
         return
 
     try:
         if is_shortened_link(long_url_input):
             url_key = long_url_input.split('/')[-1]
+<<<<<<< Updated upstream
             click_count = count_clicks(VK_TOKEN_API, url_key)
             print(f"Количество кликов по сокращенной ссылке: {click_count}")
         else:
             shortened_url, url_key = shorten_link(VK_TOKEN_API, long_url_input)
+=======
+            click_count = count_clicks(vk_api_short_link_token, url_key)
+            print(f"Количество кликов по сокращенной ссылке: {click_count}")
+        else:
+            shortened_url, url_key = shorten_link(vk_api_short_link_token, long_url_input)
+>>>>>>> Stashed changes
             print(f"Сокращенная ссылка: {shortened_url}")
     except requests.exceptions.RequestException as e:
         print(f"Произошла ошибка при запросе: {e}")
